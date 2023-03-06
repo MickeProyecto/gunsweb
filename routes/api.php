@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PedidosController;
+use App\Http\Controllers\PuntoentregaController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +34,42 @@ Route::group(['middleware'=>["auth:sanctum"]],function() {
 
 
 });
+Route::get("indexr",[RoleController::class,"indexr"]);
+Route::post("creater",[RoleController::class,"creater"]);
+//Route::get("readr",[RoleController::class,"readr"]);
+Route::put("updater/{id}",[RoleController::class,"updater"]);
+Route::delete("deleter/{id}",[RoleController::class,"deleter"]);
+
+Route::get("indexu",[UserController::class,"indexu"]);
+//Route::post("createu",[UserController::class,"createu"]);
+//Route::get("readu",[UserController::class,"readu"]);
+Route::put("updateu/{id}",[UserController::class,"updateu"]);
+Route::delete("deleteu/{id}",[UserController::class,"deleteu"]);
+
+Route::get("indexpu",[PuntoentregaController::class,"indexpu"]);
+Route::post("createpu",[PuntoentregaController::class,"createpu"]);
+//Route::get("readpu",[PuntoentregaController::class,"readpu"]);
+Route::put("updatepu/{id}",[PuntoentregaController::class,"updatepu"]);
+Route::delete("deletepu/{id}",[PuntoentregaController::class,"deletepu"]);
+
+Route::get("indexpe",[PedidosController::class,"indexpe"]);
+Route::post("createpe",[PedidosController::class,"createpe"]);
+//Route::get("readpe",[PedidosController::class,"readpe"]);
+Route::put("updatepe/{id}",[PedidosController::class,"updatepe"]);
+Route::delete("deletepe/{id}",[PedidosController::class,"deletepe"]);
+
+Route::get("indexm",[MaterialController::class,"indexm"]);
+Route::post("createm",[MaterialController::class,"createm"]);
+//Route::get("readm",[MaterialController::class,"readm"]);
+Route::put("updatem/{id}",[MaterialController::class,"updatem"]);
+Route::delete("deletem/{id}",[MaterialController::class,"deletem"]);
+
+Route::get("indexc",[CategoriaController::class,"indexc"]);
+Route::post("createc",[CategoriaController::class,"createc"]);
+//Route::get("readc",[CategoriaController::class,"readc"]);
+Route::put("updatec/{id}",[CategoriaController::class,"updatec"]);
+Route::delete("deletec/{id}",[CategoriaController::class,"deletec"]);
+
 Route::group(['middleware'=>["auth:sanctum"]],function() {
 
 });

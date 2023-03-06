@@ -16,9 +16,10 @@ class UserController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'lastName'=>'required',
+            'lastname'=>'required',
             'phone'=>'required | unique:users',
             'photo'=>'required',
+            'dni'=>'required ',
             'date_birth'=>'required',
             'direccion'=>'required',
             'email'=>'required | email | unique:users',
@@ -28,9 +29,10 @@ class UserController extends Controller
 
         $user = new User();
         $user->name=$request->name;
-        $user->lastName=$request->lastName;
+        $user->lastname=$request->lastname;
         $user->phone=$request->phone;
         $user->photo=$request->photo;
+        $user->dni=$request->dni;
         $user->date_birth=$request->date_birth;
         $user->direccion=$request->direccion;
         $user->email=$request->email;
@@ -46,10 +48,10 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            "phone" => "required",
+            "dni" => "required",
             "password" => "required"
         ]);
-        $user=user::where("phone","=",$request->phone)->first();
+        $user=user::where("dni","=",$request->dni)->first();
         if(isset($user->id)){
             if(Hash::check($request->password,$user->password)){
                 $token = $user->createToken("auth_token")->plainTextToken;
