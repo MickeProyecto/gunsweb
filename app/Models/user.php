@@ -17,16 +17,14 @@ class user extends Authenticatable
     public $timestamps=false;
     protected $fillable = [
         'id',
+        'photo',
         'name',
         'lastname',
-        'phone',
-        'photo',
-        'dni',
-        'date_birth',
-        'direccion',
-        'email',
         'password',
-        'id_role'
+        'email',
+        'phone',
+        'dni',
+        'rol'
     ];
     public function role(){
         return $this->belongsTo(role::class);
