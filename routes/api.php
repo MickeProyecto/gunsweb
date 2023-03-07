@@ -24,52 +24,44 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });
 */
-Route::post("signup",[usercontroller::class,"signup"]);
-Route::post("login",[usercontroller::class,"login"]);
 
-Route::group(['middleware'=>["auth:sanctum"]],function() {
-    Route::get("userprofile",[usercontroller::class,"userprofile"]);
-    Route::get("logout",[usercontroller::class,"logout"]);
-    Route::put("update/{id}",[usercontroller::class,"update"]);
+Route::post("signup", [usercontroller::class, "signup"]);
+Route::post("login", [usercontroller::class, "login"]);
 
-
+Route::group(['middleware' => ["auth:sanctum"]], function () {
+    Route::get("userprofile", [usercontroller::class, "userprofile"]);
+    Route::get("logout", [usercontroller::class, "logout"]);
+    Route::put("update/{id}", [usercontroller::class, "update"]);
 });
-Route::get("indexr",[RoleController::class,"indexr"]);
-Route::post("creater",[RoleController::class,"creater"]);
-//Route::get("readr",[RoleController::class,"readr"]);
-Route::put("updater/{id}",[RoleController::class,"updater"]);
-Route::delete("deleter/{id}",[RoleController::class,"deleter"]);
-
-Route::get("indexu",[UserController::class,"indexu"]);
+Route::get("indexu", [UserController::class, "indexu"]);
 //Route::post("createu",[UserController::class,"createu"]);
 //Route::get("readu",[UserController::class,"readu"]);
-Route::put("updateu/{id}",[UserController::class,"updateu"]);
-Route::delete("deleteu/{id}",[UserController::class,"deleteu"]);
+Route::put("updateu/{id}", [UserController::class, "updateu"]);
+Route::delete("deleteu/{id}", [UserController::class, "deleteu"]);
 
-Route::get("indexpu",[PuntoentregaController::class,"indexpu"]);
-Route::post("createpu",[PuntoentregaController::class,"createpu"]);
+Route::get("indexpu", [PuntoentregaController::class, "indexpu"]);
+Route::post("createpu", [PuntoentregaController::class, "createpu"]);
 //Route::get("readpu",[PuntoentregaController::class,"readpu"]);
-Route::put("updatepu/{id}",[PuntoentregaController::class,"updatepu"]);
-Route::delete("deletepu/{id}",[PuntoentregaController::class,"deletepu"]);
+Route::put("updatepu/{id}", [PuntoentregaController::class, "updatepu"]);
+Route::delete("deletepu/{id}", [PuntoentregaController::class, "deletepu"]);
 
-Route::get("indexpe",[PedidosController::class,"indexpe"]);
-Route::post("createpe",[PedidosController::class,"createpe"]);
+Route::get("indexpe", [PedidosController::class, "indexpe"]);
+Route::post("createpe", [PedidosController::class, "createpe"]);
 //Route::get("readpe",[PedidosController::class,"readpe"]);
-Route::put("updatepe/{id}",[PedidosController::class,"updatepe"]);
-Route::delete("deletepe/{id}",[PedidosController::class,"deletepe"]);
+Route::put("updatepe/{id}", [PedidosController::class, "updatepe"]);
+Route::delete("deletepe/{id}", [PedidosController::class, "deletepe"]);
 
-Route::get("indexm",[MaterialController::class,"indexm"]);
-Route::post("createm",[MaterialController::class,"createm"]);
+Route::get("indexm", [MaterialController::class, "indexm"]);
+Route::post("createm", [MaterialController::class, "createm"]);
 //Route::get("readm",[MaterialController::class,"readm"]);
-Route::put("updatem/{id}",[MaterialController::class,"updatem"]);
-Route::delete("deletem/{id}",[MaterialController::class,"deletem"]);
+Route::put("updatem/{id}", [MaterialController::class, "updatem"]);
+Route::delete("deletem/{id}", [MaterialController::class, "deletem"]);
 
-Route::get("indexc",[CategoriaController::class,"indexc"]);
-Route::post("createc",[CategoriaController::class,"createc"]);
+Route::get("indexc", [CategoriaController::class, "indexc"]);
+Route::post("createc", [CategoriaController::class, "createc"]);
 //Route::get("readc",[CategoriaController::class,"readc"]);
-Route::put("updatec/{id}",[CategoriaController::class,"updatec"]);
-Route::delete("deletec/{id}",[CategoriaController::class,"deletec"]);
+Route::put("updatec/{id}", [CategoriaController::class, "updatec"]);
+Route::delete("deletec/{id}", [CategoriaController::class, "deletec"]);
 
-Route::group(['middleware'=>["auth:sanctum"]],function() {
-
+Route::group(['middleware' => ["auth:sanctum"]], function () {
 });

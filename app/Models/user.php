@@ -26,9 +26,6 @@ class user extends Authenticatable
         'dni',
         'rol'
     ];
-    public function role(){
-        return $this->belongsTo(role::class);
-    }
     public function pedidos(){
         return $this->belongsTo(pedidos::class);
     }
